@@ -5,9 +5,13 @@ def capitalized(string):
     str_list = string.split(" ")
     for word in str_list:
         #capitalize first word and join the rest of the text
-        words.append(word[0].upper() + word[1:])
+        # words.append(word[0].upper() + word[1:])
+        words.append(word.capitalize())
     #join all words together with space
     cap_string = ' '.join(words)
+
+    # you can use list comprehension
+    # cap_string = ' '.join([word.capitalize() for word in str_list])
     return cap_string 
 
 #VERSION 1
@@ -26,5 +30,6 @@ def capitalized_v1(string):
 if __name__ == '__main__':
     text = 'look, it is working! hi. nihao ma'
     print('Original Text: ',text)
+    print('Python built-in: ',text.title())
     print('Capitalized Text: ',capitalized(text))
     print(capitalized_v1(text))

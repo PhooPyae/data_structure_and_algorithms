@@ -3,7 +3,7 @@ def palindromes_1(string):
     rev = string[::-1]
     if string == rev:
         return 'Yes'
-    else: return 'No'
+    return 'No'
 
 def palindromes_2(string):
     #version 2
@@ -12,7 +12,7 @@ def palindromes_2(string):
         rev = char + rev
     if string == rev:
         return 'Yes'
-    else: return 'No' 
+    return 'No' 
 
 def palindromes_3(string):
     #version 3

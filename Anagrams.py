@@ -8,25 +8,28 @@ def anagram(string_1,string_2):
         return False
 
     #check two character maps
-    for char in charMap_1:
-        if charMap_1[char] != charMap_2[char]:
-            return False
-    return True
-
+    # for char in charMap_1:
+    #     if charMap_1[char] != charMap_2[char]:
+    #         return False
+    # return True
+    return charMap_1 == charMap_2
+from collections import Counter
 def buildCharMap(string):
     str_dict = {}
     
     #find non alphanumeric and replace with empty string
-    for char in string:
-        if (re.match('^\W+$',char)):
-            string =string.replace(char,'').lower()
+    string = re.sub(r'\W+', '', string.lower())
+    # for char in string:
+    #     if (re.match('^\W+$',char)):
+    #         string =string.replace(char,'').lower()
     
     #build a character map / a dictionary {'h':1.'e',1}
-    for char in string:
-        if (not char in str_dict):
-            str_dict[char] = 1
-        else:
-            str_dict[char] = str_dict[char] + 1
+    # for char in string:
+    #     if (not char in str_dict):
+    #         str_dict[char] = 1
+    #     else:
+    #         str_dict[char] = str_dict[char] + 1
+    str_dict = Counter(string)
     return str_dict
 
 #------------------------------
@@ -41,10 +44,11 @@ def anagram_v1(string_1,string_2):
 #remove non alphanumeric characters
 #sort the string
 def cleanString(string):
-    sorted_string = ''
-    for char in string:
-        if (re.match('^\W+$',char)):
-            string =string.replace(char,'').lower()
+    # sorted_string = ''
+    string = re.sub(r'\W+', '', string.lower())
+    # for char in string:
+    #     if (re.match('^\W+$',char)):
+    #         string =string.replace(char,'').lower()
 
     return ''.join(sorted(list(string)))
 #-------------------------------
